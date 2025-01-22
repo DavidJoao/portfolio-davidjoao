@@ -1,5 +1,5 @@
 "use client"
-import { createContext, useContext, useEffect, useCallback } from "react"
+import { createContext, useContext, useEffect, useCallback, useState } from "react"
 
 const AppContext = createContext()
 
@@ -28,19 +28,15 @@ const Provider = ({ children }) => {
 	}
 
 	return (
-		<SessionProvider>
-			<I18nextProvider>
-				<AppContext.Provider
-					value={{
-						notification,
-						setNotification,
-						toggleTheme,
-						theme
-					}}>
-					{children}
-				</AppContext.Provider>
-			</I18nextProvider>
-		</SessionProvider>
+		<AppContext.Provider
+			value={{
+				notification,
+				setNotification,
+				toggleTheme,
+				theme,
+			}}>
+			{children}
+		</AppContext.Provider>
 	)
 }
 export default Provider
