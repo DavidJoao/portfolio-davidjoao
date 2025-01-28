@@ -6,6 +6,7 @@ const AppContext = createContext()
 const Provider = ({ children }) => {
 	const [notification, setNotification] = useState("")
 	const [theme, setTheme] = useState("light")
+	const [isShowing, setIsShowing] = useState(true)
 
 	useEffect(() => {
 		const savedTheme = localStorage.getItem("theme")
@@ -34,6 +35,7 @@ const Provider = ({ children }) => {
 				setNotification,
 				toggleTheme,
 				theme,
+				isShowing, setIsShowing
 			}}>
 			{children}
 		</AppContext.Provider>
