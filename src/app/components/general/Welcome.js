@@ -20,11 +20,11 @@ const Welcome = () => {
     <AnimatePresence mode='wait'>
         {isShowing &&
         <motion.div key="box" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}>
-        <div className='w-screen h-screen bg-black flex flex-col items-center justify-start sm:justify-center gap-2 p-10'>
+        <div className='w-screen h-screen bg-black flex flex-col items-center justify-start sm:justify-center gap-2 pt-10'>
             <motion.div initial={{ scale: 0 }} animate={{ scale: 1}}>
                 <Image height={200} width={200} src={"/pic.jpeg"} alt='pic' className='rounded-full border border-white'/>
             </motion.div>
-            <h1 className={`${dancingScript.variable} name text-3xl font-extrabold -rotate-[5deg] m-[30px] text-center`}>- David Joao Sandoval -</h1>
+            <h1 className={`${dancingScript.variable} name text-3xl font-extrabold -rotate-[5deg] p-[30px] text-center`}>- David Joao Sandoval -</h1>
             <p className='text-center'>Software Developer / Full Stack Developer</p>
             <button className='black-button' onClick={() => setIsShowing(false)}>Find Out More</button>
             <div className='flex flex-row gap-3'>
