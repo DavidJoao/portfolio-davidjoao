@@ -6,7 +6,7 @@ const AppContext = createContext()
 const Provider = ({ children }) => {
 	const [notification, setNotification] = useState("")
 	const [theme, setTheme] = useState("light")
-	const [isShowing, setIsShowing] = useState(false)
+	const [isShowing, setIsShowing] = useState(true)
 	const [currentTab, setCurrentTab] = useState("Home")
 
 	useEffect(() => {
