@@ -10,11 +10,11 @@ export default function Home() {
 
     const { isShowing } = useAppContext()
 
-    if (isShowing) return <Welcome />
-
 	return (
-		<div className="w-screen h-screen flex flex-col md:flex-row items-center justify-center">
-			
+        <>
+        <Welcome />
+        { !isShowing && 
+        <div className="w-screen h-screen flex flex-col md:flex-row items-center justify-center">
 			<div className="h-auto md:h-screen w-screen md:w-1/2 flex flex-col items-center md:items-end justify-center p-5">
 				<div className="flex flex-col items-center justify-center gap-3">
 					<img src="/memoji.png" className="w-[250px] h-[250px] sm:h-auto sm:w-auto" />
@@ -47,6 +47,7 @@ export default function Home() {
                     <button className="mt-[30px] black-button flex flex-row justify-center items-center gap-2 mx-auto">Scroll Down<IoIosArrowDropdown className="text-2xl" /></button>
 				</div>
 			</div>
-		</div>
+		</div>}
+        </>
 	)
 }
