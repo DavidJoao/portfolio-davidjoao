@@ -7,14 +7,14 @@ import { SiNextdotjs, SiPostgresql, SiMongodb } from "react-icons/si";
 const InitialPage = () => {
 
 	return (
-		<div className="w-screen h-screen flex flex-col md:flex-row items-center justify-center">
-			<div className="h-auto md:h-screen w-screen md:w-1/2 flex flex-col items-center md:items-end justify-center p-5">
+		<div className="h-[calc(100vh-4rem)] w-full flex flex-col md:flex-row items-center justify-center" style={{ background: "url('https://img.freepik.com/free-vector/dark-background-hexagonal-shapes_1048-2713.jpg?semt=ais_hybrid')", backgroundSize:"contain" }}>
+			<div className="h-auto w-screen md:w-1/2 flex flex-col items-center md:items-end justify-start p-5">
 				<div className="flex flex-col items-center justify-center gap-3">
 					<img src="/memoji.png" className="w-[250px] h-[250px] sm:h-auto sm:w-auto" />
 				</div>
 			</div>
-			<div className="h-2/3 md:h-screen w-screen md:w-1/2 flex flex-col items-center md:items-start justify-start md:justify-center text-center md:pt-[50px] md:p-2">
-				<div className="p-2">
+			<div className="h-full w-screen md:w-1/2 flex flex-col items-center md:items-start justify-start md:justify-center text-center md:pt-[50px] p-2">
+				<div className="p-2 flex flex-col items-center">
 					<h1 className="font-extrabold text-4xl md:text-[40px]">
 						I&#39;m{" "}
 						<span className="text-blue-400 font-black md:text-[50px]">David</span>
@@ -38,8 +38,12 @@ const InitialPage = () => {
 						<SiPostgresql />
 						<SiMongodb />
 					</div>
+					<p className="mt-2 font-bold text-center">Bringing ideas to life—let's build something amazing!</p>
+					<div className="mt-2 flex gap-3">
+						<button className="black-button font-bold">See my work</button>
+						<button className="blue-button font-bold">Start a project</button>
+					</div>
 				</div>
-				<p className="mt-2 font-bold text-center">Bringing ideas to life—let's build something amazing!</p>
 			</div>
 		</div>
 	)

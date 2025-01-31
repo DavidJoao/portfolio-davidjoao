@@ -82,6 +82,9 @@ body {
   .black-button {
     @apply border border-white bg-black hover:bg-white hover:text-black p-2 rounded
   }
+  .blue-button {
+    @apply border bg-blue-400 hover:bg-white hover:text-black p-2 rounded
+  }
   .social-icon {
     @apply text-[25px] opacity-80 hover:opacity-100
   }
@@ -90,5 +93,8 @@ body {
   }
   .selected-nav-link{
     @apply border-[1px] border-blue-400 text-white rounded p-1 font-bold
+  }
+  .m-height {
+    @apply h-[calc(100vh-4rem)]
   }
 }

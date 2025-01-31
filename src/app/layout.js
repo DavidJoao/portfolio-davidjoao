@@ -31,7 +31,9 @@ export default function RootLayout({ children }) {
 			<body className={`${geistNoto.variable} antialiased`} suppressHydrationWarning>
 				<Provider>
                     <Navbar />
-                    {children}
+					<div className="h-[calc(100vh-4rem)] flex flex-col">
+                    	{children}
+					</div>
                 </Provider>
 			</body>
 		</html>
