@@ -1,5 +1,6 @@
 "use client"
 import { createContext, useContext, useEffect, useCallback, useState } from "react"
+import InitialPage from "./pages/InitialPage"
 
 const AppContext = createContext()
 
@@ -8,6 +9,7 @@ const Provider = ({ children }) => {
 	const [theme, setTheme] = useState("light")
 	const [isShowing, setIsShowing] = useState(true)
 	const [currentTab, setCurrentTab] = useState("Home")
+	const [page, setPage] = useState(<InitialPage />)
 
 	useEffect(() => {
 		const savedTheme = localStorage.getItem("theme")
@@ -37,7 +39,8 @@ const Provider = ({ children }) => {
 				toggleTheme,
 				theme,
 				isShowing, setIsShowing,
-				currentTab, setCurrentTab
+				currentTab, setCurrentTab,
+				page, setPage
 			}}>
 			{children}
 		</AppContext.Provider>

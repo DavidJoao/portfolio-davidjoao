@@ -2,27 +2,35 @@
 import Link from 'next/link'
 import React, { useState } from 'react'
 import { useAppContext } from '../context'
+import ContactPage from '../pages/ContactPage'
+import ProjectsPage from '../pages/ProjectsPage'
+import AboutPage from '../pages/AboutPage'
+import InitialPage from '../pages/InitialPage'
 
 const Navbar = () => {
 
-  const { isShowing, currentTab, setCurrentTab } = useAppContext()
+  const { isShowing, currentTab, setCurrentTab, setPage } = useAppContext()
 
   if (isShowing) return <></>
   
   return (
     <div className='p-3 md:pr-10 flex justify-center md:justify-start flex-row-reverse gap-5 border text-xs md:text-base fixed w-full bg-black'>
-        <Link href={'/contact'} onClick={(e) => {
+        <button onClick={(e) => {
           setCurrentTab(e.target.innerHTML)
-          }} className={currentTab === "Contact" ? "nav-link selected-nav-link" : "nav-link text-white"}>Contact</Link>
-        <Link href={'/projects'} onClick={(e) => {
+          setPage(<ContactPage />)
+          }} className={currentTab === "Contact" ? "nav-link selected-nav-link" : "nav-link text-white"}>Contact</button>
+        <button onClick={(e) => {
           setCurrentTab(e.target.innerHTML)
-          }} className={currentTab === "Projects" ? "nav-link selected-nav-link" : "nav-link text-white"}>Projects</Link>
-        <Link href={'/about'} onClick={(e) => {
+          setPage(<ProjectsPage />)
+          }} className={currentTab === "Projects" ? "nav-link selected-nav-link" : "nav-link text-white"}>Projects</button>
+        <button onClick={(e) => {
           setCurrentTab(e.target.innerHTML)
-          }} className={currentTab === "About" ? "nav-link selected-nav-link" : "nav-link text-white"}>About</Link>
-        <Link href={'/'} onClick={(e) => {
+          setPage(<AboutPage />)
+          }} className={currentTab === "About" ? "nav-link selected-nav-link" : "nav-link text-white"}>About</button>
+        <button onClick={(e) => {
           setCurrentTab(e.target.innerHTML)
-          }} className={currentTab === "Home" ? "nav-link selected-nav-link" : "nav-link text-white"}>Home</Link>
+          setPage(<InitialPage />)
+          }} className={currentTab === "Home" ? "nav-link selected-nav-link" : "nav-link text-white"}>Home</button>
     </div>
   )
 }
