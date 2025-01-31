@@ -14,7 +14,7 @@ const InitialPage = () => {
 				</div>
 			</div>
 			<div className="h-full w-screen md:w-1/2 flex flex-col items-center md:items-start justify-start md:justify-center text-center md:pt-[50px] p-2">
-				<div className="p-2 flex flex-col items-center">
+				<div className="p-2 pt-0 flex flex-col items-center">
 					<h1 className="font-extrabold text-4xl md:text-[40px]">
 						I&#39;m{" "}
 						<span className="text-blue-400 font-black md:text-[50px]">David</span>
@@ -22,9 +22,9 @@ const InitialPage = () => {
 					<span className="text-blue-400 text-4xl md:text-[50px] font-black">
 						Sandoval
 					</span>
-					<h3 className="border-b border-slate-400 pb-2 text-md mt-5">Software Engineer</h3>
+					<h3 className="border-b border-slate-400 pb-2 text-md mt-2">Software Engineer</h3>
 					<h3 className="text-md">Full Stack Developer</h3>
-					<div className="grid grid-cols-4 sm:grid-cols-6 sm:grid-rows-2 gap-3 mt-5 text-[40px]">
+					<div className="grid grid-cols-4 sm:grid-cols-6 sm:grid-rows-2 gap-3 mt-2 text-[40px]">
 						<FaGit />
 						<FaAws />
 						<IoLogoPython />
