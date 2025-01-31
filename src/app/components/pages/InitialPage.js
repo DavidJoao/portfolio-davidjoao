@@ -22,7 +22,7 @@ const InitialPage = () => {
 					<span className="text-blue-400 text-4xl md:text-[50px] font-black">
 						Sandoval
 					</span>
-					<h3 className="border-b border-slate-400 pb-2 text-md">Software Engineer</h3>
+					<h3 className="border-b border-slate-400 pb-2 text-md mt-5">Software Engineer</h3>
 					<h3 className="text-md">Full Stack Developer</h3>
 					<div className="grid grid-cols-4 sm:grid-cols-6 sm:grid-rows-2 gap-3 mt-5 text-[40px]">
 						<FaGit />
