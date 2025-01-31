@@ -24,7 +24,7 @@ const InitialPage = () => {
 					</span>
 					<h3 className="border-b border-slate-400 pb-2 text-md mt-2">Software Engineer</h3>
 					<h3 className="text-md">Full Stack Developer</h3>
-					<div className="grid grid-cols-4 sm:grid-cols-6 sm:grid-rows-2 gap-3 mt-2 text-[40px]">
+					<div className="grid grid-cols-6 sm:grid-cols-6 sm:grid-rows-2 gap-3 mt-2 text-[40px]">
 						<FaGit />
 						<FaAws />
 						<IoLogoPython />
