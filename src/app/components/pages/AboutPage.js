@@ -28,7 +28,7 @@ const AboutPage = () => {
 
 			<div className="flex items-start justify-center p-4 md:p-[35px]">
 				<iframe
-					className="w-full h-full rounded-xl border border-neutral-500"
+					className="w-full h-[300px] mt-5 md:m-0 md:h-full rounded-xl border border-neutral-500"
 					width="560"
 					height="315"
 					src="https://www.youtube.com/embed/zPJQQeeYDYI?si=ms5zIOmjFSc5E4qR"
