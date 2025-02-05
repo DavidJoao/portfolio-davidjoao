@@ -5,7 +5,7 @@ const AboutPage = () => {
 	const { setPage, setCurrentTab } = useAppContext()
 
 	return (
-		<div className="h-auto md:h-[calc(100vh-4rem)] p-2 w-screen grid grid-cols-1 md:grid-cols-2 grid-rows-2">
+		<div className="mt-[4rem] h-auto md:h-[calc(100vh-4rem)] p-2 w-screen grid grid-cols-1 md:grid-cols-2 grid-rows-2">
 
 			<div className="flex flex-col md:items-start md:justify-center p-4 md:p-[35px] gap-2">
 				<h1 className="font-black text-[30px]">So, who am I?</h1>
