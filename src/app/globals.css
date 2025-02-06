@@ -89,12 +89,12 @@ body {
     @apply text-[25px] opacity-80 hover:opacity-100
   }
   .nav-link {
-    @apply hover:scale-125 transition p-1
+    @apply hover:scale-125 transition p-1 text-slate-500
   }
   .selected-nav-link{
-    @apply border-[1px] border-blue-400 text-white rounded p-1 font-bold
+    @apply text-white rounded p-1 font-black
   }
   .m-height {
-    @apply h-[calc(100vh-4rem)]
+    @apply h-[calc(100vh-4rem)] mt-[4rem]
   }
 }

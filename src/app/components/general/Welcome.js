@@ -1,10 +1,11 @@
-import Image from 'next/image'
 import React from 'react'
 import { Dancing_Script } from "next/font/google"
-import { FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
-import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion'
 import { useAppContext } from '../context';
+import { FaGit, FaAws } from "react-icons/fa";
+import { IoLogoPython, IoLogoJavascript, IoLogoNodejs, IoLogoReact, IoLogoCss3, IoLogoHtml5, IoLogoVercel } from "react-icons/io5";
+import { SiNextdotjs, SiPostgresql, SiMongodb } from "react-icons/si";
+
 
 const dancingScript = Dancing_Script({
     variable: "--font-dancing-script",
@@ -17,33 +18,68 @@ const Welcome = () => {
     const { setIsShowing, isShowing } = useAppContext()
 
   return (
-    <AnimatePresence mode='wait'>
-        {isShowing &&
-        <motion.div key="box" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}>
-        <div className='w-screen h-screen bg-black flex flex-col items-center justify-start sm:justify-center gap-2 pt-10'>
-            <motion.div initial={{ scale: 0 }} animate={{ scale: 1}}>
-                <Image height={200} width={200} src={"/pic.jpeg"} alt='pic' className='rounded-full border border-white'/>
-            </motion.div>
-            <h1 className={`${dancingScript.variable} name text-3xl font-extrabold -rotate-[5deg] p-[30px] text-center`}>- David Joao Sandoval -</h1>
-            <p className='text-center'>Software Engineer / Full Stack Developer</p>
-            <button className='black-button' onClick={() => setIsShowing(false)}>Find Out More</button>
-            <div className='flex flex-row gap-3'>
-                <motion.button initial={{ scale: 0 }} animate={{ scale: 1 }}>
-                    <Link href={"https://www.linkedin.com/in/davidjoaosandoval/"} target='_blank'> <FaLinkedin className='social-icon'/> </Link>
-                </motion.button>
-
-                <motion.button initial={{ scale: 0 }} animate={{ scale: 1}}>
-                    <Link href={"https://github.com/DavidJoao/"} target='_blank'> <FaGithub className='social-icon'/> </Link>
-                </motion.button>
-
-                <motion.button initial={{ scale: 0 }} animate={{ scale: 1 }}>
-                    <Link href={"https://www.instagram.com/david.jso/"} target='_blank'> <FaInstagram className='social-icon'/> </Link>
-                </motion.button>
-            </div>
-        </div>
-        </motion.div> 
-        }
-    </AnimatePresence>
+		<AnimatePresence mode="wait">
+			{isShowing && (
+				<motion.div
+					key="box"
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					exit={{ opacity: 0 }}
+					transition={{ duration: 0.5 }}>
+					<div className="m-height w-full flex flex-col md:flex-row items-center justify-center" style={{ background: "url('background.avif')", backgroundSize: "contain" }}>
+						<div className="h-auto w-screen md:w-1/2 flex flex-col items-center md:items-end justify-start">
+							<div className="flex flex-col items-center justify-center gap-3">
+								<img
+									src="/memoji.png"
+									className="w-[230px] h-[230px] sm:h-auto sm:w-auto"
+								/>
+							</div>
+						</div>
+						<div className="h-full w-screen md:w-1/2 flex flex-col items-center md:items-start justify-start md:justify-center text-center md:pt-[50px] p-2">
+							<div className="p-2 pt-0 flex flex-col items-center">
+								<h1 className="font-extrabold text-4xl md:text-[40px]">
+									I&#39;m{" "}
+									<span className="text-blue-400 font-black md:text-[50px]">
+										David
+									</span>
+								</h1>
+								<span className="text-blue-400 text-4xl md:text-[50px] font-black">
+									Sandoval
+								</span>
+								<h3 className="border-b border-slate-400 pb-2 text-md mt-2">
+									Software Engineer
+								</h3>
+								<h3 className="text-md">Full Stack Developer</h3>
+								<div className="grid grid-cols-6 sm:grid-cols-6 sm:grid-rows-2 gap-3 mt-2 text-[40px]">
+									<FaGit />
+									<FaAws />
+									<IoLogoPython />
+									<IoLogoJavascript />
+									<IoLogoNodejs />
+									<IoLogoReact />
+									<IoLogoCss3 />
+									<IoLogoHtml5 />
+									<IoLogoVercel />
+									<SiNextdotjs />
+									<SiPostgresql />
+									<SiMongodb />
+								</div>
+								<p className="mt-2 font-bold text-center">
+									Bringing ideas to life—let's build something amazing!
+								</p>
+								<div className="mt-2 flex gap-3">
+									<button
+										className="blue-button font-bold"
+										onClick={() => setIsShowing(false)}>
+										See my work
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</motion.div>
+			)}
+		</AnimatePresence>
   )
 }
 

@@ -18,19 +18,15 @@ const Navbar = () => {
         <button onClick={(e) => {
           setCurrentTab(e.target.innerHTML)
           setPage(<ContactPage />)
-          }} className={currentTab === "Contact" ? "nav-link selected-nav-link" : "nav-link text-white"}>Contact</button>
+          }} className={currentTab === "Contact" ? "nav-link selected-nav-link" : "nav-link"}>Contact</button>
         <button onClick={(e) => {
           setCurrentTab(e.target.innerHTML)
           setPage(<ProjectsPage />)
-          }} className={currentTab === "Projects" ? "nav-link selected-nav-link" : "nav-link text-white"}>Projects</button>
-        <button onClick={(e) => {
-          setCurrentTab(e.target.innerHTML)
-          setPage(<AboutPage />)
-          }} className={currentTab === "About" ? "nav-link selected-nav-link" : "nav-link text-white"}>About</button>
+          }} className={currentTab === "Projects" ? "nav-link selected-nav-link" : "nav-link"}>Projects</button>
         <button onClick={(e) => {
           setCurrentTab(e.target.innerHTML)
           setPage(<InitialPage />)
-          }} className={currentTab === "Home" ? "nav-link selected-nav-link" : "nav-link text-white"}>Home</button>
+          }} className={currentTab === "Home" ? "nav-link selected-nav-link" : "nav-link"}>Home</button>
     </div>
   )
 }
