@@ -14,7 +14,7 @@ const Navbar = () => {
   if (isShowing) return <></>
   
   return (
-    <div className='h-[4rem] p-3 md:pr-10 fixed flex md:flex justify-center md:justify-start flex-row-reverse gap-5 text-xs md:text-base w-full bg-black/60 z-[100]'>
+    <div className='h-[4rem] p-3 md:pr-10 fixed flex md:flex justify-center md:justify-start flex-row-reverse gap-5 text-md md:text-base w-full bg-black/80 z-[100]'>
         <button onClick={(e) => {
           setCurrentTab(e.target.innerHTML)
           setPage(<ContactPage />)
