@@ -7,7 +7,7 @@ import { FaLinkedin, FaInstagram, FaGithub, FaArrowRight } from "react-icons/fa"
 const InitialPage = () => {
 
 	return (
-		<div className="h-full mt-[4rem] flex flex-col lg:flex-row bg-black">
+		<div className="h-full mt-[4rem] md:m-height flex flex-col lg:flex-row bg-black">
 			<div className="flex flex-col items-center h-auto lg:h-full w-full lg:w-2/3 p-3 relative shadow-[15px_1px_26px_-4px_rgba(0,_0,_0,_0.8)] p-5 md:p-0">
 				<img src="pcmemoji.png" className="flex lg:hidden rounded-full border shadow-[inset_0px_4px_74px_36px_rgba(100,_100,_111,_0.2)]
 " />
