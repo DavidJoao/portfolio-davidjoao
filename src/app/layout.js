@@ -3,6 +3,7 @@ import "./globals.css"
 import Provider from "./components/context"
 import Navbar from "./components/general/Navbar"
 import { Noto_Sans_Cuneiform } from "next/font/google"
+import LayoutWrapper from "./components/general/LayoutWrapper"
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -31,9 +32,7 @@ export default function RootLayout({ children }) {
 			<body className={`${geistNoto.variable} antialiased`} suppressHydrationWarning>
 				<Provider>
                     <Navbar />
-					<div className="md:h-[calc(100vh-4rem)] flex flex-col">
-                    	{children}
-					</div>
+					<LayoutWrapper>{children}</LayoutWrapper>
                 </Provider>
 			</body>
 		</html>
