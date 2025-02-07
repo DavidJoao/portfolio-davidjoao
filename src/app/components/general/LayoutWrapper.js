@@ -17,7 +17,7 @@ export default function LayoutWrapper({ children }) {
 	}, [pathname])
 
 	return (
-		<div className="relative w-full h-screen overflow-auto">
+		<div className="relative w-full h-full">
 			<AnimatePresence mode="wait">
 				<motion.div
 					key={pathname}
