@@ -95,7 +95,7 @@ body {
     @apply text-white rounded p-1 font-black
   }
   .m-height {
-    @apply h-[calc(100vh-4rem)] 
+    @apply h-[calc(100vh-4rem)]
   }
   .nav-button {
     @apply mt-2 gap-2 flex flex-row items-center justify-start border-b-[1px] border-slate-300 w-auto font-bold hover:scale-110 transition duration-150

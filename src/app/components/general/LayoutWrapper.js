@@ -16,7 +16,7 @@ export default function LayoutWrapper({ children }) {
   }, [pathname]);
 
   return (
-    <div className="relative w-full h-screen overflow-hidden">
+    <div className="relative w-full h-auto">
       <AnimatePresence mode="wait">
         <motion.div
           key={pathname}
@@ -27,7 +27,7 @@ export default function LayoutWrapper({ children }) {
           className="absolute w-full h-full bg-black z-50 pointer-events-none"
         />
         {showChildren && (
-          <div className="absolute z-10 w-full h-full overflow-y-auto">{children}</div>
+          <div className="z-10 w-full h-auto">{children}</div>
         )}
       </AnimatePresence>
     </div>
