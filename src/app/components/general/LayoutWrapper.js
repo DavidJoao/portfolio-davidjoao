@@ -1,5 +1,4 @@
 "use client"
-
 import { usePathname } from "next/navigation"
 import { AnimatePresence, motion } from "framer-motion"
 import { useState, useEffect } from "react"
@@ -17,7 +16,7 @@ export default function LayoutWrapper({ children }) {
 	}, [pathname])
 
 	return (
-		<div className="relative w-full h-full">
+		<div className="relative w-full h-screen">
 			<AnimatePresence mode="wait">
 				<motion.div
 					key={pathname}
@@ -27,7 +26,9 @@ export default function LayoutWrapper({ children }) {
 					transition={{ duration: 0.3, ease: "easeInOut" }}
 					className="absolute w-full h-full bg-black z-50 pointer-events-none"
 				/>
-				{showChildren && <div className="absolute z-10 w-full h-full">{children}</div>}
+				{showChildren && (
+					<div className="absolute z-10 w-full h-full overflow-auto">{children}</div>
+				)}
 			</AnimatePresence>
 		</div>
 	)
