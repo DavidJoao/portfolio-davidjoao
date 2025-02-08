@@ -102,8 +102,6 @@ const page = () => {
 										</Link>
 									</motion.button>
 								</div>
-
-								<p>Email Sent Successfully</p>
 							</form>
 						</div>
 					</div>
