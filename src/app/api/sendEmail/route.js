@@ -31,10 +31,11 @@ export async function POST(req, res) {
             } else {
                 console.log("Email sent:", info.response)
                 res.status(200).end("Email sent successfully")
-                return NextResponse.json({ message: "Email Sent Successfully!" }, { status: 200 });
             }
         })
-
+        
+        return NextResponse.json({ message: "Email Sent Successfully!" }, { status: 200 });
+        
     } catch (error) {
         console.log(error)
         return NextResponse.json({ error: "Invalid request" }, { status: 400 });
