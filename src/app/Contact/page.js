@@ -28,6 +28,7 @@ const page = () => {
 	const submitForm = async (e) => {
 		e.preventDefault()
 		const response = await sendEmail(form)
+		console.log(response)
 		if (response.status === 200) {
 			setForm(initialForm)
 			toast("Email sent successfully!", {
