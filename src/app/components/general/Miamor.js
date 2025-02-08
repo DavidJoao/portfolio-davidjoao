@@ -1,24 +1,41 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef } from "react"
+import { usePathname } from 'next/navigation'
 
 const Miamor = () => {
 
-    const [imageSrc, setImageSrc] = useState("https://img.freepik.com/free-vector/wanna-be-my-valentine-message_23-2148801325.jpg")
+    const pathname = usePathname();
+    const audioRef = useRef(null);
 
-    return (
-        <div className='m-height flex flex-col items-center justify-center '>
-          <img src={imageSrc} className='w-[350px] rounded' />
-          <div className='flex mt-5 gap-2'>
-            <button className='p-2 w-[100px] rounded bg-green-400' onClick={() => {
-              setImageSrc("https://i.pinimg.com/originals/7c/0d/79/7c0d799c44a95f6637a05d888b3ab0d0.gif")
-              const audio = new Audio("cancion.mp3")
-              audio.play()
-              }}>Chi</button>
-            <button className='p-2 w-[100px] rounded bg-red-400' onClick={() => {
-              setImageSrc("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSm-KVLpxuT3nfZ_9Wm8rVdQf4Dl524m7cUsA&s")
-              }}>Nel</button>
-          </div>
+    useEffect(() => {
+        if (!audioRef.current) {
+            audioRef.current = new Audio("cancion.mp3");
+            
+            audioRef.current.addEventListener("canplaythrough", () => {
+                audioRef.current.play().catch(error => console.error("Playback failed:", error));
+            });
+
+            setTimeout(() => {
+                audioRef.current?.pause();
+            }, 60000);
+        }
+
+        return () => {
+            audioRef.current?.pause();
+        };
+    }, []);
+
+    useEffect(() => {
+        if (pathname !== "/Contact") {
+            audioRef.current?.pause();
+        }
+    }, [pathname]);
+
+	return (
+		<div className="h-screen lg:h-screen pt-[4rem] p-5 bg-gradient-to-tr from-black to-neutral-900 flex flex-col items-center justify-start">
+            <div className=" w-full lg:w-[600px] h-[70%] rounded-xl opacity-80" style={{ background:"url('miamor.jpeg')", backgroundPosition:"center", backgroundSize:"cover", backgroundRepeat:"no-repeat" }}></div>
+            <h1 className="font-semibold text-center text-[25px]">Y no podía faltar lo bonito de mi vida ❤️</h1>
         </div>
-      )
+	)
 }
 
 export default Miamor

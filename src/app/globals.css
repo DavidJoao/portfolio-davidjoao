@@ -95,7 +95,7 @@ body {
     @apply hover:scale-125 transition p-1 text-slate-500
   }
   .selected-nav-link{
-    @apply text-white rounded p-1 font-black
+    @apply text-white rounded p-1 font-bold
   }
   .m-height {
     @apply h-[calc(100vh-4rem)]

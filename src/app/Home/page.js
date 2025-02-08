@@ -3,6 +3,7 @@ import React from "react"
 import { AnimatePresence, motion } from 'framer-motion'
 import Link from "next/link"
 import { FaLinkedin, FaInstagram, FaGithub, FaArrowRight } from "react-icons/fa"
+import { MdOutlineFileDownload } from "react-icons/md";
 
 const InitialPage = () => {
 
@@ -81,6 +82,9 @@ const InitialPage = () => {
 									to unique solutions, these projects showcase my skills and
 									creativity in action!
 								</p>
+								<Link className="text-sm mb-1 flex items-center justify-start" href={"resume.pdf"} download={"David Sandoval Resume"} target="_blank">Resume <MdOutlineFileDownload /> </Link>
+								<Link className="text-sm mb-1 flex items-center justify-start" href={"gacert.pdf"} download={"David Sandoval Software Development Certificate"} target="_blank">Software Development Certificate <MdOutlineFileDownload /></Link>
+								<Link className="text-sm mb-1 flex items-center justify-start" href={"itrancert.pdf"} download={"David Sandoval Front End Intern Certificate"} target="_blank">Front End Engineer Certificate <MdOutlineFileDownload /></Link>
 								<Link href={"/Projects"} className="nav-button">
 									BROWSE PROJECTS <FaArrowRight />{" "}
 								</Link>
