@@ -15,7 +15,7 @@ const page = () => {
 				animate={{ opacity: 1, y: 0, x: 0 }}
 				exit={{ opacity: 0 }}
 				transition={{ duration: 0.7 }}>
-				<div className="h-auto lg:h-screen pt-[4rem] bg-gradient-to-tr from-black to-neutral-900 flex flex-col items-center pb-[4rem]">
+				<div className="h-auto lg:h-screen pt-[4rem] bg-gradient-to-tr from-black to-neutral-900 flex flex-col items-center pb-[4rem] lg:pb-[2rem]">
 					<div className="p-3 text-center">
 						<h1 className="font-black text-[35px] bg-gradient-to-bl from-neutral-700 via-neutral-400 to-neutral-700 bg-clip-text text-transparent">
 							Capturing Ideas
