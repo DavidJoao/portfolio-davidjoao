@@ -5,6 +5,7 @@ import { FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa"
 import Link from "next/link"
 import { sendEmail } from "@/lib/actions"
 import { toast } from "sonner"
+import { loaderIcon } from "@/lib/icons"
 
 const page = () => {
 
@@ -15,6 +16,7 @@ const page = () => {
 	}
 
 	const [form, setForm] = useState(initialForm)
+	const [buttonText, setButtonText] = useState("Submit")
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
@@ -26,10 +28,12 @@ const page = () => {
 
 	const submitForm = async (e) => {
 		e.preventDefault()
+		setButtonText(loaderIcon)
 		const response = await sendEmail(form)
 		console.log(response)
 		if (response.status === 200) {
 			setForm(initialForm)
+			setButtonText("Submit")
 			toast("Email sent successfully!", {
 				description: "I'll follow up with you shortly!",
 			  })
@@ -71,7 +75,7 @@ const page = () => {
 								</div>
 
 								<div className="flex flex-col">
-									<button type="submit" className="blue-button text-white font-semi-bold">Submit</button>
+									<button type="submit" className="blue-button text-white font-semi-bold flex justify-center"> {buttonText} </button>
 								</div>
 
 								<div className="flex flex-row gap-3 place-self-center mt-3">
