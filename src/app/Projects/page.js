@@ -15,7 +15,7 @@ const page = () => {
 				animate={{ opacity: 1, y: 0, x: 0 }}
 				exit={{ opacity: 0 }}
 				transition={{ duration: 0.7 }}>
-				<div className="h-auto lg:h-screen pt-[4rem] bg-gradient-to-tr from-black to-neutral-900 flex flex-col items-center">
+				<div className="h-auto lg:h-screen pt-[4rem] bg-gradient-to-tr from-black to-neutral-900 flex flex-col items-center pb-[4rem]">
 					<div className="p-3 text-center">
 						<h1 className="font-black text-[35px] bg-gradient-to-bl from-neutral-700 via-neutral-400 to-neutral-700 bg-clip-text text-transparent">
 							Capturing Ideas
@@ -28,7 +28,7 @@ const page = () => {
 						</p>
 					</div>
 
-					<div className="w-full h-auto lg:h-full flex flex-col lg:flex-row gap-3 p-3">
+					<div className="w-full h-auto lg:h-full flex flex-col lg:flex-row gap-10 p-3">
 						<div className="border-[1px] border-neutral-600 w-full lg:w-1/2 rounded-lg bg-neutral-900 p-2 flex flex-col-reverse lg:flex-row">
 							<div className="w-full lg:w-1/2 p-3 text-left">
 
