@@ -76,7 +76,7 @@ const InitialPage = () => {
 							<div>
 								<h2 className="font-black text-lg"> MY WORK </h2>
 								<p className="text-xs text-neutral-400">
-									Take a moment to explore some of the most recent projects I’ve
+									Take a moment to explore some of the most recent projects I&#39;ve
 									worked on and brought to life. From innovative web applications
 									to unique solutions, these projects showcase my skills and
 									creativity in action!

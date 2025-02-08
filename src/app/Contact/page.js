@@ -1,8 +1,12 @@
 'use client'
 import React from "react"
 import { AnimatePresence, motion } from "framer-motion"
+import { FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa"
+import Link from "next/link"
 
 const page = () => {
+
+
 	return (
 		<AnimatePresence mode="wait">
 			<motion.div
@@ -11,7 +15,69 @@ const page = () => {
 				animate={{ opacity: 1, y: 0, x: 0 }}
 				exit={{ opacity: 0 }}
 				transition={{ duration: 0.5 }}>
-				<div>Contact</div>
+				<div className="h-screen lg:h-screen pt-[4rem] bg-gradient-to-tr from-black to-neutral-900 flex flex-col lg:flex-row">
+
+					<div className={`w-full lg:w-1/2 h-auto p-3 lg:h-full flex flex-col items-center lg:justify-center pt-[50px] lg:pt-[0px] text-neutral-300 `}>
+						<h1 className="font-black text-[45px] lg:text-[65px] tracking-wide">Let&#39;s get</h1>
+						<h1 className="font-black text-[45px] lg:text-[65px] tracking-wide">started.</h1>
+					</div>
+
+					<div className="w-full lg:w-2/3 h-full p-3 lg:h-full flex flex-col items-center justify-center">
+						<div className="rounded-lg w-[90vw] sm:w-[70vw] lg:w-[60%] h-full lg:h-[70%] bg-neutral-800 shadow-3xl p-3">
+							<form className="h-full text-neutral-300 flex flex-col gap-3">
+
+								<div className="flex flex-col">
+									<label className="label">Name</label>
+									<input className="input"/>
+								</div>
+
+								<div className="flex flex-col">
+									<label className="label">Email</label>
+									<input className="input"/>
+								</div>
+
+								<div className="flex flex-col">
+									<label className="label">Message</label>
+									<textarea className="resize-none input"/>
+								</div>
+
+								<div className="flex flex-col">
+									<button className="blue-button text-white font-semi-bold">Submit</button>
+								</div>
+
+								<div className="flex flex-row gap-3 place-self-center mt-3">
+									<motion.button initial={{ scale: 0 }} animate={{ scale: 1 }}>
+										<Link
+											href={"https://www.linkedin.com/in/davidjoaosandoval/"}
+											target="_blank">
+											{" "}
+											<FaLinkedin className="social-icon" />{" "}
+										</Link>
+									</motion.button>
+
+									<motion.button initial={{ scale: 0 }} animate={{ scale: 1 }}>
+										<Link
+											href={"https://github.com/DavidJoao/"}
+											target="_blank">
+											{" "}
+											<FaGithub className="social-icon" />{" "}
+										</Link>
+									</motion.button>
+
+									<motion.button initial={{ scale: 0 }} animate={{ scale: 1 }}>
+										<Link
+											href={"https://www.instagram.com/david.jso/"}
+											target="_blank">
+											{" "}
+											<FaInstagram className="social-icon" />{" "}
+										</Link>
+									</motion.button>
+								</div>
+
+							</form>
+						</div>
+					</div>
+				</div>
 			</motion.div>
 		</AnimatePresence>
 	)

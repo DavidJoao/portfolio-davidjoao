@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion"
 import { IoLogoPython, IoLogoJavascript, IoLogoNodejs, IoLogoReact, IoLogoCss3, IoLogoHtml5, IoLogoVercel } from "react-icons/io5"
 import { FaGit, FaAws, FaSalesforce } from "react-icons/fa"
 import { SiNextdotjs, SiMongodb, SiPostgresql, SiTailwindcss } from "react-icons/si"
+import Link from "next/link"
 
 const page = () => {
 	return (
@@ -28,7 +29,7 @@ const page = () => {
 					</div>
 
 					<div className="w-full h-auto lg:h-full flex flex-col lg:flex-row gap-3 p-3">
-						<div className="border-[1px] border-neutral-600 w-full lg:w-1/2 rounded-lg bg-neutral-900 p-2 flex flex-col lg:flex-row">
+						<div className="border-[1px] border-neutral-600 w-full lg:w-1/2 rounded-lg bg-neutral-900 p-2 flex flex-col-reverse lg:flex-row">
 							<div className="w-full lg:w-1/2 p-3 text-left">
 
 								<div className="grid grid-cols-5 lg:flex lg:flex-row gap-2 text-xl m-4">
@@ -78,7 +79,7 @@ const page = () => {
 										warnings, then sends it by email to the company.
 									</li>
 								</ul>
-								<button className="nav-button mt-5">Full project</button>
+								<Link target="_blank" href={"https://booth-grading.vercel.app/"} className="nav-button mt-5">Full project</Link>
 							</div>
 
 							<div
@@ -90,7 +91,7 @@ const page = () => {
 								}}></div>
 						</div>
 
-						<div className="border-[1px] border-neutral-600 w-full lg:w-1/2 rounded-lg bg-neutral-900 p-2 flex flex-col lg:flex-row">
+						<div className="border-[1px] border-neutral-600 w-full lg:w-1/2 rounded-lg bg-neutral-900 p-2 flex flex-col-reverse lg:flex-row">
 							<div className="w-full lg:w-1/2 p-3 text-left">
 
 								<div className="grid grid-cols-5 lg:flex lg:flex-row gap-2 text-xl m-4">
@@ -132,7 +133,7 @@ const page = () => {
 										Creation of administrator panel to improve user management, roles, account deletion, account access.
 									</li>
 								</ul>
-								<button className="nav-button mt-5">Full project</button>
+								<Link target="_blank" href={"https://itransition-coursep.vercel.app/"} className="nav-button mt-5">Full project</Link>
 							</div>
 
 							<div
