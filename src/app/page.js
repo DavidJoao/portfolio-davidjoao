@@ -2,7 +2,6 @@
 import React from 'react'
 import { Dancing_Script } from "next/font/google"
 import { motion, AnimatePresence } from 'framer-motion'
-import { useAppContext } from './components/context';
 import { FaGit, FaAws } from "react-icons/fa";
 import { IoLogoPython, IoLogoJavascript, IoLogoNodejs, IoLogoReact, IoLogoCss3, IoLogoHtml5, IoLogoVercel } from "react-icons/io5";
 import { SiNextdotjs, SiPostgresql, SiMongodb } from "react-icons/si";
@@ -38,11 +37,11 @@ const page = () => {
 							<div className="p-2 pt-0 flex flex-col items-center">
 								<h1 className="font-extrabold text-4xl md:text-[40px]">
 									I&#39;m{" "}
-									<span className="text-blue-400 font-black md:text-[50px]">
+									<span className="bg-gradient-to-tr from-blue-500 via-blue-300 to-blue-500 bg-clip-text text-transparent font-black md:text-[50px]">
 										David
 									</span>
 								</h1>
-								<span className="text-blue-400 text-4xl md:text-[50px] font-black">
+								<span className="bg-gradient-to-tr from-blue-500 via-blue-300 to-blue-500 bg-clip-text text-transparent text-4xl md:text-[50px] font-black p-1">
 									Sandoval
 								</span>
 								<h3 className="border-b border-slate-400 pb-2 text-md mt-2">

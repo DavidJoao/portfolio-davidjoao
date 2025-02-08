@@ -1,6 +1,5 @@
 "use client"
 import { createContext, useContext, useEffect, useCallback, useState } from "react"
-import InitialPage from "./pages/InitialPage"
 
 const AppContext = createContext()
 
