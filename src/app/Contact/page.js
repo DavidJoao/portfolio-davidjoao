@@ -9,6 +9,8 @@ import { loaderIcon } from "@/lib/icons"
 
 const page = () => {
 
+	let regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
 	const initialForm = {
 		name: "",
 		email: "",
@@ -17,6 +19,8 @@ const page = () => {
 
 	const [form, setForm] = useState(initialForm)
 	const [buttonText, setButtonText] = useState("Submit")
+	const [errorMessage, setErrorMessage] = useState("")
+	const [validEmail, setValidEmail] = useState(false)
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
@@ -24,16 +28,31 @@ const page = () => {
 			...form, 
 			[name]: value
 		})
+
+		
+		if (name == "email") {
+			if (value === "") {
+				setErrorMessage("");
+				setValidEmail(false);
+			} else if (regex.test(value)) {
+				setErrorMessage("Valid Email");
+				setValidEmail(true);
+			} else {
+				setErrorMessage("Invalid Email");
+				setValidEmail(false);
+			}
+		}
 	}
 
 	const submitForm = async (e) => {
 		e.preventDefault()
 		setButtonText(loaderIcon)
 		const response = await sendEmail(form)
-		console.log(response)
 		if (response.status === 200) {
 			setForm(initialForm)
 			setButtonText("Submit")
+			setErrorMessage("")
+			setValidEmail("false")
 			toast("Email sent successfully!", {
 				description: "I'll follow up with you shortly!",
 			  })
@@ -67,6 +86,7 @@ const page = () => {
 								<div className="flex flex-col">
 									<label className="label">Email</label>
 									<input required name="email" value={form.email} placeholder="johnsmith@gmail.com" className="input" onChange={handleChange}/>
+									<label className={validEmail ? "text-xs text-green-500" : "text-xs text-red-500"}>{errorMessage}</label>
 								</div>
 
 								<div className="flex flex-col">
@@ -75,7 +95,7 @@ const page = () => {
 								</div>
 
 								<div className="flex flex-col">
-									<button type="submit" className="blue-button text-white font-semi-bold flex justify-center"> {buttonText} </button>
+									<button type="submit" className="blue-button text-white font-semi-bold flex justify-center" disabled={!validEmail}> {buttonText} </button>
 								</div>
 
 								<div className="flex flex-row gap-3 place-self-center mt-3">
