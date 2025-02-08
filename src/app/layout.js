@@ -4,6 +4,7 @@ import Provider from "./components/context"
 import Navbar from "./components/general/Navbar"
 import { Noto_Sans_Cuneiform } from "next/font/google"
 import LayoutWrapper from "./components/general/LayoutWrapper"
+import { Toaster } from "sonner"
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -31,6 +32,7 @@ export default function RootLayout({ children }) {
 		<html lang="en">
 			<body className={`${geistSans.variable} antialiased`} suppressHydrationWarning>
 				<Provider>
+					<Toaster /> 
                     <Navbar />
 					<LayoutWrapper>{children}</LayoutWrapper>
                 </Provider>
