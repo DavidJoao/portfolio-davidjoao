@@ -19,23 +19,15 @@ export async function POST(req, res) {
             secure: true,
             requireTLS: true,
             auth: {
-                user: process.env.NEXT_PUBLIC_NODEMAILER_EMAIL,
-                pass: process.env.NEXT_PUBLIC_NODEMAILER_EMAIL_OTP
+                user: process.env.NODEMAILER_EMAIL,
+                pass: process.env.NODEMAILER_EMAIL_OTP
             }
         })
 
-        transporter.sendMail(mailOptions, (error, info) => {
-            if (error) {
-                console.error(error)
-                res.status(500).end("Failed to send the email")
-            } else {
-                console.log("Email sent:", info.response)
-                res.status(200).end("Email sent successfully")
-            }
-        })
-        
+        const info = await transporter.sendMail(mailOptions);
+        console.log("Email sent:", info.response);
         return NextResponse.json({ message: "Email Sent Successfully!" }, { status: 200 });
-        
+
     } catch (error) {
         console.log(error)
         return NextResponse.json({ error: "Invalid request" }, { status: 400 });

@@ -15,7 +15,6 @@ const page = () => {
 	}
 
 	const [form, setForm] = useState(initialForm)
-	const [successMessage, setSuccessMessage] = useState("")
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
