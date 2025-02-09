@@ -89,7 +89,7 @@ body {
     @apply border border-white bg-black hover:bg-white hover:text-black p-2 rounded
   }
   .blue-button {
-    @apply border bg-blue-400 hover:bg-white hover:text-black p-2 rounded
+    @apply bg-blue-400 hover:bg-white hover:text-black p-2 rounded
   }
   .social-icon {
     @apply text-[25px] opacity-80 hover:opacity-100

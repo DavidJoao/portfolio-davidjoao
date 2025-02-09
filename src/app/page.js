@@ -68,7 +68,7 @@ const page = () => {
 								<div className="mt-2 flex gap-3">
 									<Link
                                         href={"/Home"}
-										className="blue-button font-bold">
+										className="blue-button font-semibold">
 										See my work
 									</Link>
 								</div>
