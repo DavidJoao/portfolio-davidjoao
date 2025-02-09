@@ -24,7 +24,7 @@ const page = () => {
 					animate={{ opacity: 1 }}
 					exit={{ opacity: 0 }}
 					transition={{ duration: 0.5 }}>
-					<div className="h-screen w-full pt-[50px] flex flex-col md:flex-row items-center justify-center" style={{ background: "url('background.avif')", backgroundSize: "contain" }}>
+					<div className="h-screen w-full pt-[50px] flex flex-col md:flex-row items-center justify-center text-neutral-300" style={{ background: "url('background.avif')", backgroundSize: "contain" }}>
 						<div className="h-auto w-screen md:w-1/2 flex flex-col items-center md:items-end justify-start">
 							<div className="flex flex-col items-center justify-center gap-3">
 								<img

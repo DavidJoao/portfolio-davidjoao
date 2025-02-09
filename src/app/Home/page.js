@@ -15,7 +15,7 @@ const InitialPage = () => {
 				animate={{ opacity: 1, y: 0, x: 0 }}
 				exit={{ opacity: 0 }}
 				transition={{ duration: 0.7 }}>
-				<div className="h-auto md:h-screen pt-[4rem] flex flex-col lg:flex-row bg-black">
+				<div className="h-auto md:h-screen pt-[4rem] flex flex-col lg:flex-row bg-black text-neutral-300">
 					<div className="flex flex-col items-center h-auto lg:h-full w-full lg:w-2/3 p-3 relative shadow-[15px_1px_26px_-4px_rgba(0,_0,_0,_0.8)] p-5 md:p-0">
 						<img
 							src="pcmemoji.png"
