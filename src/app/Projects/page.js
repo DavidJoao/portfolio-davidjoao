@@ -1,6 +1,6 @@
 "use client"
-import React from "react"
-import { AnimatePresence, motion } from "framer-motion"
+import React, { useRef } from "react"
+import { AnimatePresence, motion, useInView } from "framer-motion"
 import {
 	IoLogoJavascript,
 	IoLogoNodejs,
@@ -26,6 +26,16 @@ const page = () => {
 		"https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg", // CSS3
 		"https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg", // HTML5
 	]
+
+	const ref1 = useRef(null)
+	const ref2 = useRef(null)
+	const ref3 = useRef(null)
+	const ref4 = useRef(null)
+
+	const isInView1 = useInView(ref1, { once: true })
+	const isInView2 = useInView(ref2, { once: true })
+	const isInView3 = useInView(ref3, { once: true })
+	const isInView4 = useInView(ref4, { once: true })
 
 	return (
 		<AnimatePresence>
@@ -209,8 +219,24 @@ const page = () => {
 						<h1 className="font-black text-[35px] bg-gradient-to-bl from-neutral-700 via-neutral-400 to-neutral-700 bg-clip-text text-transparent">
 							Services
 						</h1>
-						<div className="w-full p-3 h-auto grid grid-cols-1 lg:grid-cols-4 items-center gap-5">
-							<div className="bg-neutral-900 rounded border-[1px] border-neutral-600 p-3 h-full">
+						<motion.div
+							initial="hidden"
+							animate="visible"
+							variants={{
+								visible: {
+									transition: {
+										staggerChildren: 0.3,
+									},
+								},
+								hidden: {},
+							}}
+							className="w-full p-3 h-auto grid grid-cols-1 lg:grid-cols-4 items-center gap-5">
+							<motion.div
+								ref={ref1}
+								initial={{ opacity: 0, y: 50 }}
+								animate={isInView1 ? { opacity: 1, y: 0 } : {}}
+								transition={{ duration: 0.8, ease: "easeOut" }}
+								className="bg-neutral-900 rounded border-[1px] border-neutral-600 p-3 h-full">
 								<h1 className="font-black text-[25px] bg-gradient-to-bl from-neutral-700 via-neutral-400 to-neutral-700 bg-clip-text text-transparent">
 									Web Development
 								</h1>
@@ -245,9 +271,14 @@ const page = () => {
 										interactions.
 									</li>
 								</ol>
-							</div>
+							</motion.div>
 
-							<div className="bg-neutral-900 rounded border-[1px] border-neutral-600 p-3 h-full">
+							<motion.div
+								ref={ref2}
+								initial={{ opacity: 0, y: 50 }}
+								animate={isInView2 ? { opacity: 1, y: 0 } : {}}
+								transition={{ duration: 0.8, ease: "easeOut" }}
+								className="bg-neutral-900 rounded border-[1px] border-neutral-600 p-3 h-full">
 								<h1 className="font-black text-[25px] bg-gradient-to-bl from-neutral-700 via-neutral-400 to-neutral-700 bg-clip-text text-transparent">
 									Cloud & Infrastructure
 								</h1>
@@ -281,9 +312,14 @@ const page = () => {
 										cloud resources.
 									</li>
 								</ol>
-							</div>
+							</motion.div>
 
-							<div className="bg-neutral-900 rounded border-[1px] border-neutral-600 p-3 h-full">
+							<motion.div
+								ref={ref3}
+								initial={{ opacity: 0, y: 50 }}
+								animate={isInView3 ? { opacity: 1, y: 0 } : {}}
+								transition={{ duration: 0.8, ease: "easeOut" }}
+								className="bg-neutral-900 rounded border-[1px] border-neutral-600 p-3 h-full">
 								<h1 className="font-black text-[25px] bg-gradient-to-bl from-neutral-700 via-neutral-400 to-neutral-700 bg-clip-text text-transparent">
 									Database Management
 								</h1>
@@ -303,9 +339,14 @@ const page = () => {
 										NoSQL databases.
 									</li>
 								</ol>
-							</div>
+							</motion.div>
 
-							<div className="bg-neutral-900 rounded border-[1px] border-neutral-600 p-3 h-full">
+							<motion.div
+								ref={ref4}
+								initial={{ opacity: 0, y: 50 }}
+								animate={isInView4 ? { opacity: 1, y: 0 } : {}}
+								transition={{ duration: 0.8, ease: "easeOut" }}
+								className="bg-neutral-900 rounded border-[1px] border-neutral-600 p-3 h-full">
 								<h1 className="font-black text-[25px] bg-gradient-to-bl from-neutral-700 via-neutral-400 to-neutral-700 bg-clip-text text-transparent">
 									Automation & Process Optimization
 								</h1>
@@ -333,8 +374,8 @@ const page = () => {
 										components, and efficient database queries.
 									</li>
 								</ol>
-							</div>
-						</div>
+							</motion.div>
+						</motion.div>
 					</div>
 				</div>
 			</motion.div>

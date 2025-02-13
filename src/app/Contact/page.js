@@ -1,4 +1,4 @@
-'use client'
+"use client"
 import React, { useState, useEffect } from "react"
 import { AnimatePresence, motion } from "framer-motion"
 import { FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa"
@@ -9,7 +9,18 @@ import { loaderIcon } from "@/lib/icons"
 import Miamor from "../components/general/Miamor"
 
 const page = () => {
-	
+	const text = "Let's get \n started!"
+
+	const textVariants = {
+		hidden: { opacity: 0 },
+		visible: i => ({
+			opacity: 1,
+			transition: {
+				delay: i * 0.1,
+			},
+		}),
+	}
+
 	let regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 
 	const initialForm = {
@@ -82,12 +93,26 @@ const page = () => {
 						<div className="h-screen lg:h-screen pt-[4rem] bg-gradient-to-tr from-black to-neutral-900 flex flex-col lg:flex-row">
 							<div
 								className={`w-full lg:w-1/2 h-auto p-3 lg:h-full flex flex-col items-center lg:justify-center pt-[50px] lg:pt-[0px] text-neutral-300 `}>
-								<h1 className="font-black text-[45px] lg:text-[65px] tracking-wide bg-gradient-to-bl from-neutral-700 via-neutral-400 to-neutral-700 bg-clip-text text-transparent">
-									Let&#39;s get
-								</h1>
-								<h1 className="font-black text-[45px] lg:text-[65px] tracking-wide bg-gradient-to-bl from-neutral-700 via-neutral-400 to-neutral-700 bg-clip-text text-transparent">
-									started.
-								</h1>
+								<div className="w-[95%] lg:w-1/2">
+									<h1 className="font-black text-[45px] lg:text-[65px] tracking-wide bg-gradient-to-bl from-neutral-700 via-neutral-400 to-neutral-700 bg-clip-text text-transparent text-center">
+										{text.split("").map((char, index) => (
+											<motion.span
+												key={index}
+												custom={index}
+												initial="hidden"
+												animate="visible"
+												variants={textVariants}>
+												{char}
+											</motion.span>
+										))}
+										<motion.span
+											className="border-r-2 border-orange-500 inline-block align-baseline"
+											initial={{ opacity:0 }}
+											animate={{ opacity: [0, 1, 0] }}
+											transition={{ repeat: Infinity, duration: 0.6 }}
+										/>
+									</h1>
+								</div>
 							</div>
 
 							<div className="w-full lg:w-2/3 h-full p-3 lg:h-full flex flex-col items-center justify-center">
