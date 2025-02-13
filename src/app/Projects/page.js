@@ -1,14 +1,20 @@
 "use client"
 import React from "react"
 import { AnimatePresence, motion } from "framer-motion"
-import { IoLogoJavascript, IoLogoNodejs, IoLogoReact, IoLogoCss3, IoLogoHtml5, IoLogoVercel } from "react-icons/io5"
+import {
+	IoLogoJavascript,
+	IoLogoNodejs,
+	IoLogoReact,
+	IoLogoCss3,
+	IoLogoHtml5,
+	IoLogoVercel,
+} from "react-icons/io5"
 import { FaGit, FaAws, FaSalesforce } from "react-icons/fa"
 import { SiNextdotjs, SiMongodb, SiPostgresql, SiTailwindcss } from "react-icons/si"
 import Link from "next/link"
 import { FaArrowRight } from "react-icons/fa"
 
 const page = () => {
-
 	const logos = [
 		"https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg",
 		"https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
@@ -19,8 +25,7 @@ const page = () => {
 		"https://logos-world.net/wp-content/uploads/2021/08/Amazon-Web-Services-AWS-Logo.png", // AWS
 		"https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg", // CSS3
 		"https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg", // HTML5
-	  ];
-	  
+	]
 
 	return (
 		<AnimatePresence>
@@ -181,67 +186,156 @@ const page = () => {
 						</div>
 					</div>
 
-								<div className="relative w-full overflow-hidden bg-neutral-800 p-1 flex flex-col items-center justify-center">
-									<div className="w-full flex items-center">
-										<motion.div
-										className="flex w-max space-x-10 flex items-center justify-center p-3"
-										initial={{ x: 0 }}
-										animate={{ x: "-50%" }}
-										transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
-										>
-										{[...logos, ...logos, ...logos].map((src, index) => (
-											<img key={index} src={src} alt={`Logo ${index}`} className="w-[45px] h-[45px] object-contain" />
-										))}
-										</motion.div>
-									</div>
-								</div>
-
-					<div className="w-full h-auto lg:h-full flex flex-col items-center justify-center p-3">
-						<h1 className="font-black text-[35px] bg-gradient-to-bl from-neutral-700 via-neutral-400 to-neutral-700 bg-clip-text text-transparent">Services</h1>
-						<div className="w-full p-3 h-auto grid grid-cols-1 lg:grid-cols-4 items-center gap-5">
-
-							<div className="bg-neutral-900 rounded border-[1px] border-neutral-600 p-3 h-full">
-								<h1 className="font-black text-[25px] bg-gradient-to-bl from-neutral-700 via-neutral-400 to-neutral-700 bg-clip-text text-transparent">Web Development</h1>
-								<ol className="list-disc list-inside">
-									<li className="flex flex-col text-neutral-300 text-sm"><span className="font-bold text-regular text-white">Full Stack Development</span> – Building scalable web applications using JavaScript (React.js, Next.js, Node.js) and Python (Django, FastAPI, Flask).</li>
-									<li className="flex flex-col text-neutral-300 text-sm"><span className="font-bold text-regular text-white">Frontend Development</span> – Creating responsive, high-performance UI/UX with React, Next.js, and Tailwind CSS.</li>
-									<li className="flex flex-col text-neutral-300 text-sm"><span className="font-bold text-regular text-white">Backend Development</span> - Developing APIs and backend solutions using Node.js, Express.js, and Python frameworks.</li>
-									<li className="flex flex-col text-neutral-300 text-sm"><span className="font-bold text-regular text-white">Real-time Applications</span> - Implementing WebSockets (Socket.IO) for live updates and interactions.</li>
-								</ol>
-							</div>
-
-							<div className="bg-neutral-900 rounded border-[1px] border-neutral-600 p-3 h-full">
-								<h1 className="font-black text-[25px] bg-gradient-to-bl from-neutral-700 via-neutral-400 to-neutral-700 bg-clip-text text-transparent">Cloud & Infrastructure</h1>
-								<ol className="list-disc list-inside">
-									<li className="flex flex-col text-neutral-300 text-sm"><span className="font-bold text-regular text-white">Cloud Deployment</span> – Deploying and managing web applications on Vercel, AWS, and Render.</li>
-									<li className="flex flex-col text-neutral-300 text-sm"><span className="font-bold text-regular text-white">Storage Optimization</span> – Integrating AWS S3 for efficient and cost-effective image/document storage.</li>
-									<li className="flex flex-col text-neutral-300 text-sm"><span className="font-bold text-regular text-white">Serverless Architecture</span> – Setting up cloud-based functions and services for scalability and performance.</li>
-									<li className="flex flex-col text-neutral-300 text-sm"><span className="font-bold text-regular text-white">Monitoring & Alerts</span> - Configuring AWS CloudWatch alarms to track and manage cloud resources.</li>
-								</ol>
-							</div>
-
-							<div className="bg-neutral-900 rounded border-[1px] border-neutral-600 p-3 h-full">
-								<h1 className="font-black text-[25px] bg-gradient-to-bl from-neutral-700 via-neutral-400 to-neutral-700 bg-clip-text text-transparent">Database Management</h1>
-								<ol className="list-disc list-inside">
-									<li className="flex flex-col text-neutral-300 text-sm"><span className="font-bold text-regular text-white">Data Security & Authentication</span> –Implementing secure authentication with JWT, OAuth, password encryption, and access control.</li>
-									<li className="flex flex-col text-neutral-300 text-sm"><span className="font-bold text-regular text-white">PostgreSQL & MongoDB</span> – Designing, optimizing, and maintaining relational and NoSQL databases.</li>
-								</ol>
-							</div>
-
-							<div className="bg-neutral-900 rounded border-[1px] border-neutral-600 p-3 h-full">
-								<h1 className="font-black text-[25px] bg-gradient-to-bl from-neutral-700 via-neutral-400 to-neutral-700 bg-clip-text text-transparent">Automation & Process Optimization</h1>
-								<ol className="list-disc list-inside">
-									<li className="flex flex-col text-neutral-300 text-sm"><span className="font-bold text-regular text-white">Cost Reduction Strategies</span> – Minimizing third-party dependencies by developing in-house solutions for document management, notifications, and data handling.</li>
-									<li className="flex flex-col text-neutral-300 text-sm"><span className="font-bold text-regular text-white">Custom Web Solutions</span> – Developing tailored applications to enhance business operations and user experiences.</li>
-									<li className="flex flex-col text-neutral-300 text-sm"><span className="font-bold text-regular text-white">Performance Optimization</span> – Enhancing website performance with lazy loading, dynamic components, and efficient database queries.</li>
-								</ol>
-							</div>
-
-
-
+					<div className="relative w-full overflow-hidden bg-neutral-800 p-1 flex flex-col items-center justify-center">
+						<div className="w-full flex items-center">
+							<motion.div
+								className="flex w-max space-x-10 flex items-center justify-center p-3"
+								initial={{ x: 0 }}
+								animate={{ x: "-50%" }}
+								transition={{ repeat: Infinity, duration: 20, ease: "linear" }}>
+								{[...logos, ...logos, ...logos].map((src, index) => (
+									<img
+										key={index}
+										src={src}
+										alt={`Logo ${index}`}
+										className="w-[45px] h-[45px] object-contain"
+									/>
+								))}
+							</motion.div>
 						</div>
 					</div>
 
+					<div className="w-full h-auto lg:h-full flex flex-col items-center justify-center p-3">
+						<h1 className="font-black text-[35px] bg-gradient-to-bl from-neutral-700 via-neutral-400 to-neutral-700 bg-clip-text text-transparent">
+							Services
+						</h1>
+						<div className="w-full p-3 h-auto grid grid-cols-1 lg:grid-cols-4 items-center gap-5">
+							<div className="bg-neutral-900 rounded border-[1px] border-neutral-600 p-3 h-full">
+								<h1 className="font-black text-[25px] bg-gradient-to-bl from-neutral-700 via-neutral-400 to-neutral-700 bg-clip-text text-transparent">
+									Web Development
+								</h1>
+								<ol className="list-disc list-inside">
+									<li className="flex flex-col text-neutral-300 text-sm">
+										<span className="font-bold text-regular text-white">
+											Full Stack Development
+										</span>{" "}
+										– Building scalable web applications using JavaScript
+										(React.js, Next.js, Node.js) and Python (Django, FastAPI,
+										Flask).
+									</li>
+									<li className="flex flex-col text-neutral-300 text-sm">
+										<span className="font-bold text-regular text-white">
+											Frontend Development
+										</span>{" "}
+										– Creating responsive, high-performance UI/UX with React,
+										Next.js, and Tailwind CSS.
+									</li>
+									<li className="flex flex-col text-neutral-300 text-sm">
+										<span className="font-bold text-regular text-white">
+											Backend Development
+										</span>{" "}
+										- Developing APIs and backend solutions using Node.js,
+										Express.js, and Python frameworks.
+									</li>
+									<li className="flex flex-col text-neutral-300 text-sm">
+										<span className="font-bold text-regular text-white">
+											Real-time Applications
+										</span>{" "}
+										- Implementing WebSockets (Socket.IO) for live updates and
+										interactions.
+									</li>
+								</ol>
+							</div>
+
+							<div className="bg-neutral-900 rounded border-[1px] border-neutral-600 p-3 h-full">
+								<h1 className="font-black text-[25px] bg-gradient-to-bl from-neutral-700 via-neutral-400 to-neutral-700 bg-clip-text text-transparent">
+									Cloud & Infrastructure
+								</h1>
+								<ol className="list-disc list-inside">
+									<li className="flex flex-col text-neutral-300 text-sm">
+										<span className="font-bold text-regular text-white">
+											Cloud Deployment
+										</span>{" "}
+										– Deploying and managing web applications on Vercel, AWS,
+										and Render.
+									</li>
+									<li className="flex flex-col text-neutral-300 text-sm">
+										<span className="font-bold text-regular text-white">
+											Storage Optimization
+										</span>{" "}
+										– Integrating AWS S3 for efficient and cost-effective
+										image/document storage.
+									</li>
+									<li className="flex flex-col text-neutral-300 text-sm">
+										<span className="font-bold text-regular text-white">
+											Serverless Architecture
+										</span>{" "}
+										– Setting up cloud-based functions and services for
+										scalability and performance.
+									</li>
+									<li className="flex flex-col text-neutral-300 text-sm">
+										<span className="font-bold text-regular text-white">
+											Monitoring & Alerts
+										</span>{" "}
+										- Configuring AWS CloudWatch alarms to track and manage
+										cloud resources.
+									</li>
+								</ol>
+							</div>
+
+							<div className="bg-neutral-900 rounded border-[1px] border-neutral-600 p-3 h-full">
+								<h1 className="font-black text-[25px] bg-gradient-to-bl from-neutral-700 via-neutral-400 to-neutral-700 bg-clip-text text-transparent">
+									Database Management
+								</h1>
+								<ol className="list-disc list-inside">
+									<li className="flex flex-col text-neutral-300 text-sm">
+										<span className="font-bold text-regular text-white">
+											Data Security & Authentication
+										</span>{" "}
+										–Implementing secure authentication with JWT, OAuth,
+										password encryption, and access control.
+									</li>
+									<li className="flex flex-col text-neutral-300 text-sm">
+										<span className="font-bold text-regular text-white">
+											PostgreSQL & MongoDB
+										</span>{" "}
+										– Designing, optimizing, and maintaining relational and
+										NoSQL databases.
+									</li>
+								</ol>
+							</div>
+
+							<div className="bg-neutral-900 rounded border-[1px] border-neutral-600 p-3 h-full">
+								<h1 className="font-black text-[25px] bg-gradient-to-bl from-neutral-700 via-neutral-400 to-neutral-700 bg-clip-text text-transparent">
+									Automation & Process Optimization
+								</h1>
+								<ol className="list-disc list-inside">
+									<li className="flex flex-col text-neutral-300 text-sm">
+										<span className="font-bold text-regular text-white">
+											Cost Reduction Strategies
+										</span>{" "}
+										– Minimizing third-party dependencies by developing in-house
+										solutions for document management, notifications, and data
+										handling.
+									</li>
+									<li className="flex flex-col text-neutral-300 text-sm">
+										<span className="font-bold text-regular text-white">
+											Custom Web Solutions
+										</span>{" "}
+										– Developing tailored applications to enhance business
+										operations and user experiences.
+									</li>
+									<li className="flex flex-col text-neutral-300 text-sm">
+										<span className="font-bold text-regular text-white">
+											Performance Optimization
+										</span>{" "}
+										– Enhancing website performance with lazy loading, dynamic
+										components, and efficient database queries.
+									</li>
+								</ol>
+							</div>
+						</div>
+					</div>
 				</div>
 			</motion.div>
 		</AnimatePresence>
