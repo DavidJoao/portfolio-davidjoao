@@ -5,7 +5,7 @@ import { FaArrowRight } from 'react-icons/fa'
 const Project = ( { project } ) => {
   return (
     <div className="border-[1px] border-neutral-600 rounded-lg bg-neutral-900 p-2 flex flex-col-reverse md:flex-row lg:flex-col-reverse lg:items-center lg:justify-end">
-        <div className="w-full lg:w-1/2 p-3 text-left lg:w-full">
+        <div className="w-full lg:w-1/2 p-3 text-left lg:w-full flex flex-col h-full">
             <div className="grid grid-cols-6 md:grid-cols-10 lg:grid-cols-6 gap-2 text-xl m-3 place-items-center">
                 {project.technologies.map((logo, index) => {
                     return(
@@ -23,7 +23,7 @@ const Project = ( { project } ) => {
             <h1 className="text-lg text-neutral-200 font-semibold mt-2">
                 Main Features:
             </h1>
-            <ul className="list-disc list-inside text-xs text-neutral-300">
+            <ul className="list-disc list-inside text-xs text-neutral-300 mb-3">
                 { project.features.map((feature, index) => {
                     return (
                         <li key={index}>{feature}</li>
@@ -33,7 +33,7 @@ const Project = ( { project } ) => {
             <Link
                 target="_blank"
                 href={project.link}
-                className="nav-button mt-5">
+                className="nav-button mt-5 mt-auto">
                 Full project
                 <FaArrowRight />
             </Link>
