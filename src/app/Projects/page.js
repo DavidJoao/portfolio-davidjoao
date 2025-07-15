@@ -1,18 +1,6 @@
 "use client"
 import React, { useRef } from "react"
 import { AnimatePresence, motion, useInView } from "framer-motion"
-import {
-	IoLogoJavascript,
-	IoLogoNodejs,
-	IoLogoReact,
-	IoLogoCss3,
-	IoLogoHtml5,
-	IoLogoVercel,
-} from "react-icons/io5"
-import { FaGit, FaAws, FaSalesforce } from "react-icons/fa"
-import { SiNextdotjs, SiMongodb, SiPostgresql, SiTailwindcss } from "react-icons/si"
-import Link from "next/link"
-import { FaArrowRight } from "react-icons/fa"
 import Project from "../components/general/Project"
 import { projects } from "@/lib/projects"
 
@@ -63,6 +51,7 @@ const page = () => {
 					<div className="w-full h-auto lg:h-full grid grid-cols-1 lg:grid-cols-3 gap-5 p-3">
 
 						<Project project={projects.booth}/>
+						<Project project={projects.avshotchicken} />
 						<Project project={projects.intern}/>
 						<Project project={projects.scenariogpt} />
 

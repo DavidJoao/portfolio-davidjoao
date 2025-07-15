@@ -26,6 +26,20 @@ export const projects = {
             warnings, then sends it by email to the company.`
         ],
     },
+    avshotchicken: {
+        title: "AV's Hot Chicken",
+        description: `I created a website for a hot chicken restaurant with engaging animations, custom design as requested by the designer and owner, device responsive, 5 sections.`,
+        technologies: [<SiNextdotjs />, <SiTailwindcss />, <IoLogoCss3 />, <IoLogoNodejs />, <IoLogoVercel />, <FaGit />],
+        image: "avshotchicken.png",
+        link: "https://www.avshotchicken.com/",
+        features: [
+            `Engaging animations throughout the site for a lively user experience.`,
+            `Custom design tailored to the vision of the designer and owner.`,
+            `Fully responsive layout for seamless browsing on all devices.`,
+            `Five distinct sections to showcase menu, story, gallery, contact, and location.`,
+            `Deployed on Vercel for fast and reliable performance.`
+        ],
+    },
     intern: {
         title: "Forms Web Application",
         description: `A dynamic form-building web application with authentication,
