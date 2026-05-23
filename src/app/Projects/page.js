@@ -1,247 +1,192 @@
 "use client"
-import React, { useRef } from "react"
+
+import { useRef } from "react"
 import { AnimatePresence, motion, useInView } from "framer-motion"
 import Project from "../components/general/Project"
 import { projects } from "@/lib/projects"
 
+const logos = [
+  "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png",
+  "https://cdn.iconscout.com/icon/free/png-256/free-mongodb-logo-icon-download-in-svg-png-gif-file-formats--wordmark-programming-langugae-freebies-pack-logos-icons-1175140.png?f=webp",
+  "https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg",
+  "https://logos-world.net/wp-content/uploads/2021/08/Amazon-Web-Services-AWS-Logo.png",
+  "https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg",
+]
+
+const services = [
+  {
+    title: "Web Development",
+    items: [
+      {
+        label: "Full Stack Development",
+        text: "Building scalable web applications using JavaScript (React.js, Next.js, Node.js) and Python (Django, FastAPI, Flask).",
+      },
+      {
+        label: "Frontend Development",
+        text: "Creating responsive, high-performance UI/UX with React, Next.js, and Tailwind CSS.",
+      },
+      {
+        label: "Backend Development",
+        text: "Developing APIs and backend solutions using Node.js, Express.js, and Python frameworks.",
+      },
+      {
+        label: "Real-time Applications",
+        text: "Implementing WebSockets (Socket.IO) for live updates and interactions.",
+      },
+    ],
+  },
+  {
+    title: "Cloud & Infrastructure",
+    items: [
+      {
+        label: "Cloud Deployment",
+        text: "Deploying and managing web applications on Vercel, AWS, and Render.",
+      },
+      {
+        label: "Storage Optimization",
+        text: "Integrating AWS S3 for efficient and cost-effective image/document storage.",
+      },
+      {
+        label: "Serverless Architecture",
+        text: "Setting up cloud-based functions and services for scalability and performance.",
+      },
+      {
+        label: "Monitoring & Alerts",
+        text: "Configuring AWS CloudWatch alarms to track and manage cloud resources.",
+      },
+    ],
+  },
+  {
+    title: "Database Management",
+    items: [
+      {
+        label: "Data Security & Authentication",
+        text: "Implementing secure authentication with JWT, OAuth, password encryption, and access control.",
+      },
+      {
+        label: "PostgreSQL & MongoDB",
+        text: "Designing, optimizing, and maintaining relational and NoSQL databases.",
+      },
+    ],
+  },
+  {
+    title: "Automation & Process Optimization",
+    items: [
+      {
+        label: "Cost Reduction Strategies",
+        text: "Minimizing third-party dependencies by developing in-house solutions for document management, notifications, and data handling.",
+      },
+      {
+        label: "Custom Web Solutions",
+        text: "Developing tailored applications to enhance business operations and user experiences.",
+      },
+      {
+        label: "Performance Optimization",
+        text: "Enhancing website performance with lazy loading, dynamic components, and efficient database queries.",
+      },
+    ],
+  },
+]
+
+function ServiceCard({ service, index }) {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true })
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 32 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, delay: index * 0.08, ease: "easeOut" }}
+      className="surface-panel h-full p-5 sm:p-6"
+    >
+      <h3 className="text-lg font-semibold text-white">{service.title}</h3>
+      <ul className="mt-4 space-y-4">
+        {service.items.map((item, i) => (
+          <li key={i} className="text-sm text-zinc-400">
+            <span className="font-medium text-zinc-200">{item.label}</span>
+            <span className="mt-0.5 block leading-relaxed">{item.text}</span>
+          </li>
+        ))}
+      </ul>
+    </motion.div>
+  )
+}
+
 const page = () => {
-	const logos = [
-		"https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg",
-		"https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
-		"https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg", // Python
-		"https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png", // JavaScript
-		"https://cdn.iconscout.com/icon/free/png-256/free-mongodb-logo-icon-download-in-svg-png-gif-file-formats--wordmark-programming-langugae-freebies-pack-logos-icons-1175140.png?f=webp", // MongoDB
-		"https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg", // PostgreSQL
-		"https://logos-world.net/wp-content/uploads/2021/08/Amazon-Web-Services-AWS-Logo.png", // AWS
-		"https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg", // CSS3
-		"https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg", // HTML5
-	]
+  return (
+    <AnimatePresence>
+      <motion.div
+        key="projects"
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.5 }}
+        className="page-shell"
+      >
+        <div className="page-container space-y-16 pt-5 sm:space-y-20">
+          <header className="text-center">
+            <p className="section-eyebrow mb-3">Portfolio</p>
+            <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
+              <span className="heading-gradient">Capturing Ideas</span>
+              <br />
+              <span className="heading-accent">Delivering Results</span>
+            </h1>
+            <p className="mx-auto mt-4 max-w-md text-sm text-zinc-400">
+              Most recent projects from my portfolio
+            </p>
+          </header>
 
-	const ref1 = useRef(null)
-	const ref2 = useRef(null)
-	const ref3 = useRef(null)
-	const ref4 = useRef(null)
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-2">
+            <Project project={projects.booth} />
+            <Project project={projects.avshotchicken} />
+            <Project project={projects.intern} />
+            <Project project={projects.scenariogpt} />
+          </div>
 
-	const isInView1 = useInView(ref1, { once: true })
-	const isInView2 = useInView(ref2, { once: true })
-	const isInView3 = useInView(ref3, { once: true })
-	const isInView4 = useInView(ref4, { once: true })
+          <div className="overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950/80 py-4">
+            <motion.div
+              className="flex w-max items-center gap-12 px-4"
+              initial={{ x: 0 }}
+              animate={{ x: "-50%" }}
+              transition={{ repeat: Infinity, duration: 24, ease: "linear" }}
+            >
+              {[...logos, ...logos, ...logos].map((src, index) => (
+                <img
+                  key={index}
+                  src={src}
+                  alt=""
+                  className="h-10 w-10 object-contain opacity-70 grayscale transition-all hover:opacity-100 hover:grayscale-0 sm:h-11 sm:w-11"
+                />
+              ))}
+            </motion.div>
+          </div>
 
-	return (
-		<AnimatePresence>
-			<motion.div
-				key="box"
-				initial={{ opacity: 0, y: -10, x: -10 }}
-				animate={{ opacity: 1, y: 0, x: 0 }}
-				exit={{ opacity: 0 }}
-				transition={{ duration: 0.7 }}>
-				<div className="h-auto lg:min-h-screen pt-[4rem] bg-gradient-to-tr from-black to-neutral-900 flex flex-col items-center pb-[4rem] lg:pb-[2rem]">
-					<div className="p-3 text-center">
-						<h1 className="font-black text-[35px] bg-gradient-to-bl from-neutral-700 via-neutral-400 to-neutral-700 bg-clip-text text-transparent">
-							Capturing Ideas
-						</h1>
-						<h1 className="font-black text-[35px] bg-gradient-to-bl from-neutral-700 via-neutral-400 to-neutral-700 bg-clip-text text-transparent">
-							Delivering Results
-						</h1>
-						<p className="text-neutral-300 text-sm">
-							Most recent projects of my portfolio:
-						</p>
-					</div>
-
-					<div className="w-full h-auto lg:h-full grid grid-cols-1 lg:grid-cols-3 gap-5 p-3">
-
-						<Project project={projects.booth}/>
-						<Project project={projects.avshotchicken} />
-						<Project project={projects.intern}/>
-						<Project project={projects.scenariogpt} />
-
-					</div>
-
-					<div className="relative w-full overflow-hidden bg-neutral-800 p-1 flex flex-col items-center justify-center">
-						<div className="w-full flex items-center">
-							<motion.div
-								className="flex w-max space-x-10 flex items-center justify-center p-3"
-								initial={{ x: 0 }}
-								animate={{ x: "-50%" }}
-								transition={{ repeat: Infinity, duration: 20, ease: "linear" }}>
-								{[...logos, ...logos, ...logos].map((src, index) => (
-									<img
-										key={index}
-										src={src}
-										alt={`Logo ${index}`}
-										className="w-[45px] h-[45px] object-contain"
-									/>
-								))}
-							</motion.div>
-						</div>
-					</div>
-
-					<div className="w-full h-auto lg:h-full flex flex-col items-center justify-center p-3">
-						<h1 className="font-black text-[35px] bg-gradient-to-bl from-neutral-700 via-neutral-400 to-neutral-700 bg-clip-text text-transparent">
-							Services
-						</h1>
-						<motion.div
-							initial="hidden"
-							animate="visible"
-							variants={{
-								visible: {
-									transition: {
-										staggerChildren: 0.3,
-									},
-								},
-								hidden: {},
-							}}
-							className="w-full p-3 h-auto grid grid-cols-1 lg:grid-cols-4 items-center gap-5">
-							<motion.div
-								ref={ref1}
-								initial={{ opacity: 0, y: 50 }}
-								animate={isInView1 ? { opacity: 1, y: 0 } : {}}
-								transition={{ duration: 0.8, ease: "easeOut" }}
-								className="bg-neutral-900 rounded border-[1px] border-neutral-600 p-3 h-full">
-								<h1 className="font-black text-[25px] bg-gradient-to-bl from-neutral-700 via-neutral-400 to-neutral-700 bg-clip-text text-transparent">
-									Web Development
-								</h1>
-								<ol className="list-disc list-inside">
-									<li className="flex flex-col text-neutral-300 text-sm">
-										<span className="font-bold text-regular text-white">
-											Full Stack Development
-										</span>{" "}
-										– Building scalable web applications using JavaScript
-										(React.js, Next.js, Node.js) and Python (Django, FastAPI,
-										Flask).
-									</li>
-									<li className="flex flex-col text-neutral-300 text-sm">
-										<span className="font-bold text-regular text-white">
-											Frontend Development
-										</span>{" "}
-										– Creating responsive, high-performance UI/UX with React,
-										Next.js, and Tailwind CSS.
-									</li>
-									<li className="flex flex-col text-neutral-300 text-sm">
-										<span className="font-bold text-regular text-white">
-											Backend Development
-										</span>{" "}
-										- Developing APIs and backend solutions using Node.js,
-										Express.js, and Python frameworks.
-									</li>
-									<li className="flex flex-col text-neutral-300 text-sm">
-										<span className="font-bold text-regular text-white">
-											Real-time Applications
-										</span>{" "}
-										- Implementing WebSockets (Socket.IO) for live updates and
-										interactions.
-									</li>
-								</ol>
-							</motion.div>
-
-							<motion.div
-								ref={ref2}
-								initial={{ opacity: 0, y: 50 }}
-								animate={isInView2 ? { opacity: 1, y: 0 } : {}}
-								transition={{ duration: 0.8, ease: "easeOut" }}
-								className="bg-neutral-900 rounded border-[1px] border-neutral-600 p-3 h-full">
-								<h1 className="font-black text-[25px] bg-gradient-to-bl from-neutral-700 via-neutral-400 to-neutral-700 bg-clip-text text-transparent">
-									Cloud & Infrastructure
-								</h1>
-								<ol className="list-disc list-inside">
-									<li className="flex flex-col text-neutral-300 text-sm">
-										<span className="font-bold text-regular text-white">
-											Cloud Deployment
-										</span>{" "}
-										– Deploying and managing web applications on Vercel, AWS,
-										and Render.
-									</li>
-									<li className="flex flex-col text-neutral-300 text-sm">
-										<span className="font-bold text-regular text-white">
-											Storage Optimization
-										</span>{" "}
-										– Integrating AWS S3 for efficient and cost-effective
-										image/document storage.
-									</li>
-									<li className="flex flex-col text-neutral-300 text-sm">
-										<span className="font-bold text-regular text-white">
-											Serverless Architecture
-										</span>{" "}
-										– Setting up cloud-based functions and services for
-										scalability and performance.
-									</li>
-									<li className="flex flex-col text-neutral-300 text-sm">
-										<span className="font-bold text-regular text-white">
-											Monitoring & Alerts
-										</span>{" "}
-										- Configuring AWS CloudWatch alarms to track and manage
-										cloud resources.
-									</li>
-								</ol>
-							</motion.div>
-
-							<motion.div
-								ref={ref3}
-								initial={{ opacity: 0, y: 50 }}
-								animate={isInView3 ? { opacity: 1, y: 0 } : {}}
-								transition={{ duration: 0.8, ease: "easeOut" }}
-								className="bg-neutral-900 rounded border-[1px] border-neutral-600 p-3 h-full">
-								<h1 className="font-black text-[25px] bg-gradient-to-bl from-neutral-700 via-neutral-400 to-neutral-700 bg-clip-text text-transparent">
-									Database Management
-								</h1>
-								<ol className="list-disc list-inside">
-									<li className="flex flex-col text-neutral-300 text-sm">
-										<span className="font-bold text-regular text-white">
-											Data Security & Authentication
-										</span>{" "}
-										–Implementing secure authentication with JWT, OAuth,
-										password encryption, and access control.
-									</li>
-									<li className="flex flex-col text-neutral-300 text-sm">
-										<span className="font-bold text-regular text-white">
-											PostgreSQL & MongoDB
-										</span>{" "}
-										– Designing, optimizing, and maintaining relational and
-										NoSQL databases.
-									</li>
-								</ol>
-							</motion.div>
-
-							<motion.div
-								ref={ref4}
-								initial={{ opacity: 0, y: 50 }}
-								animate={isInView4 ? { opacity: 1, y: 0 } : {}}
-								transition={{ duration: 0.8, ease: "easeOut" }}
-								className="bg-neutral-900 rounded border-[1px] border-neutral-600 p-3 h-full">
-								<h1 className="font-black text-[25px] bg-gradient-to-bl from-neutral-700 via-neutral-400 to-neutral-700 bg-clip-text text-transparent">
-									Automation & Process Optimization
-								</h1>
-								<ol className="list-disc list-inside">
-									<li className="flex flex-col text-neutral-300 text-sm">
-										<span className="font-bold text-regular text-white">
-											Cost Reduction Strategies
-										</span>{" "}
-										– Minimizing third-party dependencies by developing in-house
-										solutions for document management, notifications, and data
-										handling.
-									</li>
-									<li className="flex flex-col text-neutral-300 text-sm">
-										<span className="font-bold text-regular text-white">
-											Custom Web Solutions
-										</span>{" "}
-										– Developing tailored applications to enhance business
-										operations and user experiences.
-									</li>
-									<li className="flex flex-col text-neutral-300 text-sm">
-										<span className="font-bold text-regular text-white">
-											Performance Optimization
-										</span>{" "}
-										– Enhancing website performance with lazy loading, dynamic
-										components, and efficient database queries.
-									</li>
-								</ol>
-							</motion.div>
-						</motion.div>
-					</div>
-				</div>
-			</motion.div>
-		</AnimatePresence>
-	)
+          <section>
+            <header className="mb-8 text-center">
+              <p className="section-eyebrow mb-3">What I offer</p>
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
+                <span className="heading-gradient">Services</span>
+              </h2>
+            </header>
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
+              {services.map((service, index) => (
+                <ServiceCard
+                  key={service.title}
+                  service={service}
+                  index={index}
+                />
+              ))}
+            </div>
+          </section>
+        </div>
+      </motion.div>
+    </AnimatePresence>
+  )
 }
 
 export default page

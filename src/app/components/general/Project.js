@@ -1,52 +1,54 @@
-import React from 'react'
-import Link from 'next/link'
-import { FaArrowRight } from 'react-icons/fa'
+import Link from "next/link"
+import { FaArrowRight } from "react-icons/fa"
 
-const Project = ( { project } ) => {
+const Project = ({ project }) => {
   return (
-    <div className="border-[1px] border-neutral-600 rounded-lg bg-neutral-900 p-2 flex flex-col-reverse md:flex-row lg:flex-col-reverse lg:items-center lg:justify-end">
-        <div className="w-full lg:w-1/2 p-3 text-left lg:w-full flex flex-col h-full">
-            <div className="grid grid-cols-6 md:grid-cols-10 lg:grid-cols-6 gap-2 text-xl m-3 place-items-center">
-                {project.technologies.map((logo, index) => {
-                    return(
-                        <div key={index}>{logo}</div>
-                    )
-                })}
-            </div>
+    <article className="surface-card group flex h-full flex-col overflow-hidden transition-colors hover:border-zinc-700">
+      <div
+        className="relative h-48 w-full shrink-0 border-b border-zinc-800 bg-zinc-900 sm:h-52"
+        style={{
+          background: `url('${project.image}') center / cover no-repeat`,
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-80" />
+      </div>
 
-            <h1 className="text-lg text-neutral-200 font-semibold">
-                {project.title}
-            </h1>
-            <p className="text-xs text-neutral-300">
-                {project.description}
-            </p>
-            <h1 className="text-lg text-neutral-200 font-semibold mt-2">
-                Main Features:
-            </h1>
-            <ul className="list-disc list-inside text-xs text-neutral-300 mb-3">
-                { project.features.map((feature, index) => {
-                    return (
-                        <li key={index}>{feature}</li>
-                    )
-                }) }
-            </ul>
-            <Link
-                target="_blank"
-                href={project.link}
-                className="nav-button mt-5 mt-auto">
-                Full project
-                <FaArrowRight />
-            </Link>
+      <div className="flex flex-1 flex-col p-5 sm:p-6">
+        <div className="mb-4 flex flex-wrap gap-2 text-lg text-zinc-500">
+          {project.technologies.map((logo, index) => (
+            <span
+              key={index}
+              className="transition-colors group-hover:text-zinc-300"
+            >
+              {logo}
+            </span>
+          ))}
         </div>
 
-        <div
-            className="border-[1px] border-neutral-600 min-w-[200px] min-h-[300px] w-full rounded-lg opacity-60"
-            style={{
-                background: `url('${project.image}')`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-            }}></div>
-    </div>
+        <h2 className="text-lg font-semibold text-white">{project.title}</h2>
+        <p className="mt-2 text-sm leading-relaxed text-zinc-400">
+          {project.description}
+        </p>
+
+        <p className="mt-4 text-xs font-medium uppercase tracking-wider text-zinc-500">
+          Main features
+        </p>
+        <ul className="mt-2 list-inside list-disc space-y-1 text-sm text-zinc-400">
+          {project.features.map((feature, index) => (
+            <li key={index}>{feature}</li>
+          ))}
+        </ul>
+
+        <Link
+          target="_blank"
+          rel="noopener noreferrer"
+          href={project.link}
+          className="nav-cta mt-auto pt-6"
+        >
+          View project <FaArrowRight className="text-xs" />
+        </Link>
+      </div>
+    </article>
   )
 }
 
