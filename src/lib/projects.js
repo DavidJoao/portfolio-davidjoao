@@ -69,7 +69,7 @@ export const projects = {
         description: "ScenarioGPT is a web app that helps you navigate specific interactions by providing the most likely questions and effective responses—all in your chosen language. ScenarioGPT equips you with the best answers for every scenario. ",
         technologies: [<SiNextdotjs />, <IoLogoReact />, <SiTailwindcss />, <IoLogoCss3 />, <IoLogoJavascript />, <IoLogoHtml5 />, <IoLogoVercel />, <IoLogoNodejs />, <FaGit />],
         image: "scenariogpt.png",
-        link: "https://scenariogpt.vercel.app/",
+        link: "https://scenario-gpt.vercel.app/",
         features: [`AI-Powered Responses: Utilizes the OpenAI API to generate realistic questions and effective responses tailored to various scenarios.`, `Multilingual Support: Provides answers and interactions in your chosen language, helping you communicate effectively in real-time.`, `Instant Learning Aid: Designed for quick access to practical language responses, perfect for urgent situations without waiting for a full lesson.`],
     }
 }
